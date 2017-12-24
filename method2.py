@@ -1,6 +1,7 @@
 import random
 import geometry
 import matplotlib.pyplot as plt
+import centerFinder
 
 DELTA_POINTS = 120
 
@@ -105,6 +106,10 @@ def findCenter(optimalPoints):
     return (e1[0] + e2[0] + e3[0] + e4[0]) / 4.0, (e1[1] + e2[1] + e3[1] + e4[1]) / 4.0
 
 
+
+
+
+
 def start(points):
     global NUM_POINTS
     global DELTA_POINTS
@@ -117,12 +122,15 @@ def start(points):
     startPoints.append((firstPoint + 1 * NUM_POINTS / 4) % NUM_POINTS)
     startPoints.append((firstPoint + 2 * NUM_POINTS / 4) % NUM_POINTS)
     startPoints.append((firstPoint + 3 * NUM_POINTS / 4) % NUM_POINTS)
+    startPoints.append((firstPoint + 1 * NUM_POINTS / 6) % NUM_POINTS)
+    startPoints.append((firstPoint + 3 * NUM_POINTS / 6) % NUM_POINTS)
+    startPoints.append((firstPoint + 5 * NUM_POINTS / 6) % NUM_POINTS)
     for i in startPoints:
         print(i)
         optimalPoints.append(iterateHords(points, i))
 
     print(len(optimalPoints[0]), len(optimalPoints[1]), len(optimalPoints[2]), len(optimalPoints[3]))
 
-    center = findCenter(optimalPoints)
+    center = centerFinder.find(optimalPoints)
     print center
     return optimalPoints, startPoints, center

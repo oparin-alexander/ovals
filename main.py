@@ -14,7 +14,7 @@ def main():
     print sys.argv
     startT = time.time()
     global x, y
-    rsOval = oval.generate2(100, 50, 600)
+    rsOval = oval.generate2(100, 50, 1000)
     initialCenter = [(25, 0)]
 
 
