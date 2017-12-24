@@ -14,7 +14,7 @@ def main():
     startT = time.time()
     global x, y
     rsOval = oval.generate2(100, 50, 300)
-    rsOval = oval.proect(rsOval, 1,2,3,4,5,6,7,8,9)
+    #rsOval = oval.proect(rsOval, 5,4,2, 2,3,2, 0,0,1)
 
     for point in rsOval:
         pX, pY = point
@@ -35,11 +35,12 @@ def main():
             y1[i].append(pY)
         i +=1
 
-    s=100
     finishT = time.time()
 
     print "{} s".format(finishT - startT)
-    plt.plot(x, y, 'b-', x1[0], y1[0], 'r.', x1[1], y1[1], 'g.', x1[2], y1[2], 'c.', x1[3], y1[3], 'm.')
+    plt.plot(x, y, 'b-', x1[0], y1[0], 'r-', x1[1], y1[1], 'g-', x1[2], y1[2], 'c-', x1[3], y1[3], 'm-')
+
+
     plt.show()
 
 

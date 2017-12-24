@@ -30,3 +30,15 @@ def proect(points, c1, c2, c3, c4, c5, c6, c7, c8, c9):
             ny = (c4 * x + c5 * y + c6) * 1.0 / d
             nPoints.append((nx, ny))
     return nPoints
+
+
+
+
+
+def test():
+    points = proect([(1,1)],1,1,1,1,1,1,1,1,1)
+    print(points)
+
+
+if __name__ == "__main__":
+    test()
