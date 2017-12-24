@@ -3,7 +3,7 @@ import geometry
 import matplotlib.pyplot as plt
 
 
-DELTA_POINTS = 60
+DELTA_POINTS = 30
 
 '''
 print(wurf)
@@ -45,6 +45,7 @@ def iterateCross(points, i1, i2, crossPoint):
     minDelta=10000.0
     optimalPoint =()
 
+    bbb=[]
     k= (i1 + DELTA_POINTS)%numPoint
     while k != (numPoint + i2-DELTA_POINTS)%numPoint:
         k1 = findPair(points, k, crossPoint, i1, i2)
@@ -59,11 +60,18 @@ def iterateCross(points, i1, i2, crossPoint):
 
         wurf = geometry.wurf(crossPoint, points[k], hordPoint, points[k1])
         deltaWurf = abs(wurf-2)
+        bbb.append(deltaWurf)
 
-        if deltaWurf < minDelta:
+        if deltaWurf < minDelta and deltaWurf<0.05:
             minDelta = deltaWurf
             optimalPoint = hordPoint
         k= (k + 1) % numPoint
+
+    aaa = range(0, len(bbb))
+    print("{} {}".format(len(aaa), len(bbb)))
+    plt.plot(aaa, bbb, '.')
+    plt.savefig('./temp/foo{}_{}.png'.format(i1, i2))
+
 
     if minDelta>2:
         return None

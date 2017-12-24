@@ -3,6 +3,7 @@ import time
 import oval
 import matplotlib.pyplot as plt
 import method
+import method2
 
 
 
@@ -13,13 +14,14 @@ def main():
     startT = time.time()
     global x, y
     rsOval = oval.generate2(100, 50, 300)
+    rsOval = oval.proect(rsOval, 1,2,3,4,5,6,7,8,9)
 
     for point in rsOval:
         pX, pY = point
         x.append(pX)
         y.append(pY)
 
-    optPoints, ipoints = method.start(rsOval)
+    optPoints, ipoints = method2.start(rsOval)
 
     x1=[]
     y1=[]
