@@ -3,7 +3,7 @@ import geometry
 import matplotlib.pyplot as plt
 
 
-DELTA_POINTS = 60
+DELTA_POINTS = 70
 
 '''
 print(wurf)
@@ -39,6 +39,12 @@ def findPair(points, k, crossPoint, i1, i2):
         return kOpt
 
 
+def isIncenterHord(points, i1, i2, hordPoint):
+    x1, y1 = points[i1]
+    x2, y2 = points[i2]
+    xc, yc = hordPoint
+
+
 def iterateCross(points, i1, i2, crossPoint):
     numPoint = len(points)
 
@@ -60,7 +66,7 @@ def iterateCross(points, i1, i2, crossPoint):
         wurf = geometry.wurf(crossPoint, points[k], hordPoint, points[k1])
         deltaWurf = abs(wurf-2)
 
-        if deltaWurf < minDelta:
+        if deltaWurf < minDelta :
             minDelta = deltaWurf
             optimalPoint = hordPoint
         k= (k + 1) % numPoint
@@ -106,4 +112,6 @@ def start(points):
         point_i = random.randint(0, len(points)-1)
         optimalPoints.append(iterateHords(points, point_i))
         pointis.append(point_i)
+
+    print(len(optimalPoints[0]), len(optimalPoints[1]), len(optimalPoints[2]), len(optimalPoints[3]))
     return optimalPoints, pointis
